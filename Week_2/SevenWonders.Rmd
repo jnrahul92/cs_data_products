@@ -1,0 +1,31 @@
+---
+title: "Seven Wonders of the World"
+author: "Rahul Jain"
+date: "10/04/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Map
+
+Seven Wonders of the world on world map
+
+```{r echo=FALSE}
+library(leaflet)
+wonders <- data.frame(lat = c(29.976111,40.68,30.328611,41.890278,20.683056,-13.163333,27.175,-22.951944),
+                      lng = c(31.132778,117.23,35.441944,12.492222,-88.568611,-72.545556,78.041944,-43.210556))
+
+wondersNames <- c("<a href='https://en.wikipedia.org/wiki/Giza_pyramid_complex'> Pyramids of Giza</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Great_Wall_of_China'> Great Wall of China</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Petra'> Petra</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Colosseum'>Colosseum</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Chichen_Itza'>Chichen Itza</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Machu_Picchu'>Machu Picchu</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Taj_Mahal'>Taj Mahal</a>",
+                  "<a href='https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)'>Chris the Redeemer</a>")
+
+wonders %>% leaflet() %>% addTiles() %>% addMarkers(popup = wondersNames)
+```

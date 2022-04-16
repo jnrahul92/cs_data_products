@@ -1,0 +1,50 @@
+---
+title: "Week 4 Assignment"
+author: "Rahul Jain"
+date: "16/04/2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This is the reproducible pitch presentation for Week 4 assignment for Course - Developing Data Products. In this 
+presentation, I will present the details of the model implemented on shiny app : 
+
+https://rjain92.shinyapps.io/Basic_Model/
+
+Github repo for this project - 
+
+## Swiss Dataset {.smaller}
+
+First, let me show you the dataset that I have used for creating the shiny app
+
+```{r echo=TRUE,warning=FALSE}
+data("swiss")
+summary(swiss)
+```
+
+## Model Creation for Predicting Fertility {.smaller}
+
+```{r echo=TRUE,warning=FALSE}
+fit <- lm(Fertility~Education,data = swiss)
+summary(fit)
+```
+
+Model fit summary shows that Education is a highly significant variable in the linear model. Also, we can see that adjusted r-squared is around 0.43. We can add 
+further parameters to the model to create a better model
+
+## Predicion using the simple linear model {.smaller}
+
+
+```{r echo=TRUE,warning=FALSE,fig.width=6,fig.height=4}
+prediction <- predict(fit, newdata = data.frame(Education = 25))
+plot(swiss$Examination,swiss$Fertility, xlab = "Education Level",
+             ylab = "Fertility", main = "Education Level vs Fertility")
+abline(fit,col="red",lwd=2)
+abline(h=prediction,col="blue")
+abline(v=25,col = "blue")
+```

@@ -1,0 +1,33 @@
+---
+title: "My Plotly Project"
+author: "Rahul Jain"
+date: "12/04/2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Plotly Chart
+
+
+```{r echo=FALSE,warning=FALSE}
+
+suppressPackageStartupMessages(library(quantmod))
+suppressPackageStartupMessages(library(plotly))
+
+options("getSymbols.warning4.0"=FALSE)
+getSymbols("GOOGL",src = "yahoo")
+
+df <- data.frame(Date=index(GOOGL),coredata(GOOGL))
+fig <- df %>% plot_ly(x = ~Date, type="candlestick",
+          open = ~GOOGL.Open, close = ~GOOGL.Close,
+          high = ~GOOGL.High, low = ~GOOGL.Low) 
+fig <- fig %>% layout(title = "Google Stock Trend (Zoom in to see more detailed view)",
+         xaxis = list(rangeslider = list(visible = F)))
+
+fig
+
+```
+

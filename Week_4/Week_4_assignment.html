@@ -181,9 +181,9 @@ slide:not(.current) .plotly.html-widget{
 
 <p><a href='https://rjain92.shinyapps.io/Basic_Model/' title=''>https://rjain92.shinyapps.io/Basic_Model/</a></p>
 
-<p>Github repo for this project -</p>
+<p>Github repo for this project - <a href='https://github.com/jnrahul92/cs_data_products/tree/master/Week_4' title=''>https://github.com/jnrahul92/cs_data_products/tree/master/Week_4</a></p>
 
-</article></slide><slide class=""><hgroup><h2>Swiss Dataset</h2></hgroup><article  class="smaller" id="swiss-dataset">
+</article></slide><slide class=""><hgroup><h2>Swiss Dataset</h2></hgroup><article  id="swiss-dataset" class="smaller">
 
 <p>First, let me show you the dataset that I have used for creating the shiny app</p>
 
@@ -205,7 +205,7 @@ summary(swiss)</pre>
 ##  3rd Qu.: 93.125   3rd Qu.:21.70   
 ##  Max.   :100.000   Max.   :26.60</pre>
 
-</article></slide><slide class=""><hgroup><h2>Model Creation for Predicting Fertility</h2></hgroup><article  class="smaller" id="model-creation-for-predicting-fertility">
+</article></slide><slide class=""><hgroup><h2>Model Creation for Predicting Fertility</h2></hgroup><article  id="model-creation-for-predicting-fertility" class="smaller">
 
 <pre class = 'prettyprint lang-r'>fit &lt;- lm(Fertility~Education,data = swiss)
 summary(fit)</pre>
@@ -231,7 +231,7 @@ summary(fit)</pre>
 
 <p>Model fit summary shows that Education is a highly significant variable in the linear model. Also, we can see that adjusted r-squared is around 0.43. We can add further parameters to the model to create a better model</p>
 
-</article></slide><slide class=""><hgroup><h2>Predicion using the simple linear model</h2></hgroup><article  class="smaller" id="predicion-using-the-simple-linear-model">
+</article></slide><slide class=""><hgroup><h2>Predicion using the simple linear model</h2></hgroup><article  id="predicion-using-the-simple-linear-model" class="smaller">
 
 <pre class = 'prettyprint lang-r'>prediction &lt;- predict(fit, newdata = data.frame(Education = 25))
 plot(swiss$Examination,swiss$Fertility, xlab = &quot;Education Level&quot;,

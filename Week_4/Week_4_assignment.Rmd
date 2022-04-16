@@ -16,7 +16,7 @@ presentation, I will present the details of the model implemented on shiny app :
 
 https://rjain92.shinyapps.io/Basic_Model/
 
-Github repo for this project - 
+Github repo for this project - https://github.com/jnrahul92/cs_data_products/tree/master/Week_4
 
 ## Swiss Dataset {.smaller}
 
